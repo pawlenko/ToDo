@@ -27,6 +27,22 @@ class TaskController < ApplicationController
 
     end
 
+    def update
+        @task = Task.find(params[:id])
+        @tasks =  @current_team.tasks.all()
+        respond_to do |format|
+            if @task.update(task_params)
+                format.js {render action: "index" }
+                format.html {redirect_to root_path,  notice:"New task added"}
+                format.json { render json: @task.to_json }
+            else
+                format.js {render action: "index" }
+                format.html {redirect_to root_path,  notice:"Error"}
+                format.json { render json: @task.to_json }
+            end
+         end
+     end
+
 
     def new
         @task = Task.new
@@ -42,7 +58,7 @@ class TaskController < ApplicationController
     end
 
     def task_params
-        params.require(:task).permit(:name)
+        params.require(:task).permit(:name,:finish)
     end
 
 

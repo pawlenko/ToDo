@@ -15,7 +15,7 @@
                     <% @tasks.each do |task| %>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                             <%= task.name %>
-                            <span class="badge"><%= task_state(task.finish) %></span>
+                            <span class="badge"> <%= link_to task_state(task.finish),team_task_path(@current_team,task, task: {finish: !task.finish}), method: :put, remote: true  %> </span>
                           </li>
                      <% end %>
                     </ul>

@@ -1,7 +1,7 @@
 module TasksHelper
 
     def task_state(boolean)
-        boolean ? 'Finished' : 'Not Finished'
+        boolean ? 'Finished' : 'Mark as Finished '
     end
 
 end
