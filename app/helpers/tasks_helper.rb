@@ -1,7 +1,7 @@
 module TasksHelper
 
     def task_state(boolean)
-        boolean ? 'Finished' : 'Mark as Finished '
+        boolean ? '<%= fa_icon "check-square" %>' : '<%= fa_icon "square" %>'
     end
 
 end

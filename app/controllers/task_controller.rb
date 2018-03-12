@@ -27,6 +27,16 @@ class TaskController < ApplicationController
 
     end
 
+    def destroy
+        @task = Task.find(params[:id])
+        @tasks =  @current_team.tasks.all()
+        @task.destroy();
+        respond_to do |format|
+                format.js {render action: "index" }
+                format.html {redirect_to root_path,  notice:"New task added"}
+         end
+    end
+
     def update
         @task = Task.find(params[:id])
         @tasks =  @current_team.tasks.all()
