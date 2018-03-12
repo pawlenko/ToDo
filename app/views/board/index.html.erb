@@ -1,20 +1,18 @@
 
 
-
-<div class="container">
-
-    
+<div class="content">
+<div class="container" >
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">The teams you belong to
-                        <br><small class="text-info"> <%= fa_icon "plus" %> <%= link_to "Create new team",new_team_url, remote: true %>  </small>
+                <h1 class="page-header" >
+                    <div class="HeaderName">The teams you belong to </div>
+                     <small class="text-info"> <%= fa_icon "plus" %> <%= link_to "Create new team",new_team_url, remote: true %>  </small>
           </h1>
             </div>
         </div>
-        <!-- /.row -->
-    </div>
+</div>
 
-    <div class="container">
+    <div class="container" id="ContentContainer">
             <div class="flex-row row"  id="teams">
     
                     <% @teams.each do |team| %>
@@ -23,14 +21,12 @@
                                 <div class="caption">
                                     <h3><%= team.name %></h2>
                                     <p class="flex-text text-muted"> <%= team.description %>  </p>
-                                    <a class="btn btn-primary" href="#">Open</a>
+                                    <%= link_to  "Show tasks",  team_task_index_url(team),:class=>"btn btn-primary",:remote=>true %>
                                     <%= link_to  "Remove", team_url(team),method: :delete,:class=>"btn btn-danger",:style=>"margin-top:10px;",:remote=>true %>
                                 </div>
                             </div>
                         </div>
                      <% end %>
-             
             </div>
         </div>        
-
-
+    </div>
