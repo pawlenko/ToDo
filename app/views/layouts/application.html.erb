@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <title>ToDo</title>
     <%= csrf_meta_tags %>
@@ -9,9 +10,10 @@
   </head>
 
   <body>
-
-<%= render partial: "/shared/alerts" %>
-
+    <%= render partial: "/shared/header" %>
+    <%= render partial: "/shared/alerts" %>
     <%= yield %>
   </body>
+
+
 </html>

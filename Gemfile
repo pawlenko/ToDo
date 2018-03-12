@@ -40,7 +40,7 @@ gem 'devise'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
+
 
 #font awesome
 gem "font-awesome-rails"
