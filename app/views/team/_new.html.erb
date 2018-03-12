@@ -1,0 +1,28 @@
+<div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Create new team </h4>
+                </div>
+                
+                <%= form_for @team, url: {action:"create"},:class=>"form-horizontal",:remote=>true  do |f|  %>
+                <div class="modal-body">
+                        <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"></span>
+                                <%= f.text_field :name, placeholder: "Team name", autofocus: true ,  :class=>"form-control" %>
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"></span>
+                                    <%= f.text_field :description, placeholder: "Description", autofocus: true ,  :class=>"form-control" %>
+                                </div>
+                         
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <%= f.submit "Create",:class=>"btn btn-primary" %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+</div>
