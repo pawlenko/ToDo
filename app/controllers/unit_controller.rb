@@ -1,4 +1,6 @@
 class UnitController < ApplicationController
+    load_and_authorize_resource
+    before_action :authenticate_user!
     before_action :set_team
 
     def index
@@ -19,6 +21,20 @@ class UnitController < ApplicationController
 
    
 
+    def update
+        @unit = Unity.find(params[:id])
+        @unit.role = Role.find(params[:role_id])
+        @units = @current_team.unities.all()
+        respond_to do |format|
+        if @unit.save()
+            format.js {render action: "index" }
+         else
+            format.js   {  render  "shared/alert", :locals=>{:alert=>"Something went wrong"} }
+         end
+        end
+
+    end
+
 
     def create
         @user =  nil;
@@ -29,6 +45,7 @@ class UnitController < ApplicationController
         @unit = Unity.new()
         @unit.team = @current_team
         @unit.user = @user
+        @unit.role = Role.where(name: 'user').first()
         @units =   @current_team.unities.all()
         respond_to do |format|
         if @unit.save
@@ -60,5 +77,8 @@ class UnitController < ApplicationController
     def set_team
         @current_team = Team.find(params[:team_id])
     end
+
+
+  
 
 end

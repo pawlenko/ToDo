@@ -1,4 +1,6 @@
 class TaskController < ApplicationController
+    load_and_authorize_resource
+    before_action :authenticate_user!
     before_action :set_team
 
     def index
@@ -19,7 +21,7 @@ class TaskController < ApplicationController
             format.html {redirect_to root_path,  notice:"New task added"}
             format.json { render json: @task.to_json }
             else
-            format.js {render action: "index" }
+            format.js   {  render  "shared/alert", :locals=>{:alert=>"Something went wrong"} }
             format.html {redirect_to root_path,  notice:"Error"}
             format.json { render json: @task.to_json }
           end

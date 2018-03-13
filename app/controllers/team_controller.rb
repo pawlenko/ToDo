@@ -1,5 +1,6 @@
 class TeamController < ApplicationController
-
+    load_and_authorize_resource
+    before_action :authenticate_user!
 def new
     @team = Team.new
     respond_to do |format|
@@ -10,6 +11,7 @@ end
 def create
     @team = Team.new(team_params)
     @unit = Unity.new
+    @unit.role = Role.where(name: 'creator').first()
     respond_to do |format|
     if @team.save
         @unit.user = current_user
@@ -19,7 +21,7 @@ def create
         format.html {redirect_to root_path,  notice:"New team added"}
         format.json { render json: @team.to_json }
         else
-        format.js {render action: "create" }
+        format.js   {  render  "shared/alert", :locals=>{:alert=>"Something went wrong"} }
         format.html {redirect_to root_path,  notice:"Error"}
         format.json { render json: @team.to_json }
       end

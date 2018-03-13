@@ -1,0 +1,4 @@
+$('.alert').remove();
+$('.content').prepend("<%= j render :partial => 'shared/alerts', :locals=>{:alert=>alert,:notice =>notice} %>")
+
+
