@@ -1,5 +1,6 @@
 class TeamController < ApplicationController
-
+    load_and_authorize_resource
+    before_action :authenticate_user!
 def new
     @team = Team.new
     respond_to do |format|
