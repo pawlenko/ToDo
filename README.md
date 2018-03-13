@@ -6,7 +6,7 @@ Example implementation of ToDo application in Ruby on Rails.
 ##### Features
 
 * SingUp and LogIn
-* Create you own team
+* Create your own team
 * User can belong to many teams
 * Invite other person to your team
 * Add, remove and finish tasks in your team
