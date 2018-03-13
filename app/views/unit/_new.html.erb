@@ -1,0 +1,22 @@
+<div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add new user </h4>
+                </div>
+                <%= form_for @unit, url: {action:"create"},:class=>"form-horizontal",:remote=>true  do |f|  %>
+                <div class="modal-body">
+                        <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"></span>
+                                <%= email_field_tag :email,nil,  class:"form-control",placeholder:"Email" %>
+                            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <%= f.submit "Add",:class=>"btn btn-primary" %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+</div>
