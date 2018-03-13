@@ -10,6 +10,7 @@ end
 def create
     @team = Team.new(team_params)
     @unit = Unity.new
+    @unit.role = Role.where(name: 'creator').first()
     respond_to do |format|
     if @team.save
         @unit.user = current_user
