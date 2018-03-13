@@ -33,7 +33,7 @@ class TaskController < ApplicationController
         @task.destroy();
         respond_to do |format|
                 format.js {render action: "index" }
-                format.html {redirect_to root_path,  notice:"New task added"}
+                format.html {redirect_to root_path,  notice:"Task removed"}
          end
     end
 
@@ -43,7 +43,7 @@ class TaskController < ApplicationController
         respond_to do |format|
             if @task.update(task_params)
                 format.js {render action: "index" }
-                format.html {redirect_to root_path,  notice:"New task added"}
+                format.html {redirect_to root_path,  notice:"Task updated"}
                 format.json { render json: @task.to_json }
             else
                 format.js {render action: "index" }
