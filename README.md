@@ -1,24 +1,36 @@
-# README
+# About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example implementation of ToDo application in Ruby on Rails. 
 
-Things you may want to cover:
 
-* Ruby version
+## Features
 
-* System dependencies
+* SingUp and LogIn
+* Create you own team
+* User can belong to many teams
+* Invite other person to your team
+* Add, remove and finish tasks in your team
+* Single Page Application
+* Responsvie Design
 
-* Configuration
 
-* Database creation
+# Installation
 
-* Database initialization
+```sh
+bundle install
+rake db:migrate
+rake db:seed 
+```
 
-* How to run the test suite
+# Run application
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+rails s
+```
 
-* Deployment instructions
+License
+----
 
-* ...
+MIT
+
+
