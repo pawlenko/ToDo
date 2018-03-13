@@ -24,6 +24,7 @@ Example implementation of ToDo application in Ruby on Rails.
 
 
 ##### Roles
+
 * Creator ( team owner )
 * User    ( user that was added to team. This role allow finish tasks)   
 * Reader  ( user that was added to team. This role allow only read task list)
