@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    respond_to do |format|
+      format.html {  redirect_to root_url, :alert => exception.message }
+      format.js   {  render  "shared/alert", :locals=>{:alert=>exception.message} }
+    end
+   
   end
 
 

@@ -15,27 +15,7 @@
         <div class="container" id="ContentContainer">
             <div class="flex-row row"  id="teams">
                     <% @teams.each do |team| %>
-                        <div class="col-xs-6 col-sm-4 col-lg-3" id="team_<%= team.id %>" >
-                            <div class="thumbnail" >
-                                <div class="caption">
-                                        <% if @current_user.isCreator?(team) %>
-                                        <div class="text-right">
-                                        <%= link_to  team_unit_index_url(team),:remote=>true  do %>
-                                        <%= fa_icon "user" %> 
-                                         <% end %>
-                                        </div>
-                                        <% end %>
-                                        <div class="text-center">
-                                    <h3><%= team.name %></h2>
-                                    <p class="flex-text text-muted"> <%= team.description %>  </p>
-                                        </div>
-                                    <%= link_to  "Show tasks",  team_task_index_url(team),:class=>"btn btn-primary",:remote=>true %>
-                                    <% if @current_user.isCreator?(team) %>
-                                    <%= link_to  "Remove", team_url(team),method: :delete,:class=>"btn btn-danger",:style=>"margin-top:10px;",:remote=>true %>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
+                    <%= render  :partial=> "team/single", :locals=>{:team=>team} %>
                     <% end %>
                 </div>
             </div>        

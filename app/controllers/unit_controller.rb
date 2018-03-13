@@ -27,7 +27,7 @@ class UnitController < ApplicationController
         if @unit.save()
             format.js {render action: "index" }
          else
-            format.js {render action: "index" }
+            format.js   {  render  "shared/alert", :locals=>{:alert=>"Something went wrong"} }
          end
         end
 

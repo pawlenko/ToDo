@@ -14,7 +14,7 @@ class Ability
           can :read, Team
           can :read, Task
       else
-          can :read,:all
+         
       end
       
   end
