@@ -3,7 +3,7 @@
 Example implementation of ToDo application in Ruby on Rails. 
 
 
-## Features
+##### Features
 
 * SingUp and LogIn
 * Create you own team
@@ -13,6 +13,14 @@ Example implementation of ToDo application in Ruby on Rails.
 * Single Page Application
 * Responsvie Design
 
+##### Used gems
+
+* Devise
+* CanCan
+* Rolify
+* FontAwesome
+* Bootstrap
+* Jquery
 
 # Installation
 
